@@ -11,6 +11,10 @@ import Progress from './components/Progress';
 import Row from './components/Row';
 import Column from './components/Column';
 
+import Table from './components/Table';
+import TableRow from './components/TableRow';
+import TableCell from './components/TableCell';
+
 export default class App extends React.Component {
     constructor(props){
       super(props);
@@ -113,8 +117,37 @@ export default class App extends React.Component {
       );
     }
 
+    _table() {
+      let items = [{
+        // TODO: Adding rows/cols.
+      }];
+
+      return (
+        <Table striped={true} hover={true} dark={false}>
+          <thead>
+            <TableRow>
+                <TableCell header={true}>Name</TableCell>
+                <TableCell header={true}>Status</TableCell>
+            </TableRow>
+          </thead>
+
+          <tbody>
+            <TableRow>
+              <TableCell>override</TableCell>
+              <TableCell>required</TableCell>
+            </TableRow>
+            
+            <TableRow>
+              <TableCell>constructor</TableCell>
+              <TableCell>not required</TableCell>
+            </TableRow>
+          </tbody>
+        </Table>
+      );
+    }
+
     render() {
-      let view = this._ListGroup();
+      let view = this._table();
 
       return (
         <main className="container">

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     children: PropTypes.any.isRequired,
-    cssStyles: PropTypes.string,
+    style: PropTypes.string,
 };
 
 const defaultProps = {
@@ -12,10 +12,10 @@ const defaultProps = {
 
 class Row extends React.Component {
     render() {
-        const { children, cssStyles, ...props } = this.props;
+        const { children, style, ...props } = this.props;
 
         return (
-            <div className='row' style={cssStyles}>
+            <div className='row' style={style}>
                 {children}
             </div>
         );
