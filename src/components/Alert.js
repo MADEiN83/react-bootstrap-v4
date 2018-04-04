@@ -1,13 +1,9 @@
 import React from 'react';
-import { AlertStates } from '../config/Styles';
+import { AlertStates } from '../config/AlertConfig';
 
 import DismissButton from './DismissButton';
 
 export default class Alert extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { type, onDismiss, cssStyle, closeLabel, children, ...props } = this.props;
         let className = AlertStates[type];

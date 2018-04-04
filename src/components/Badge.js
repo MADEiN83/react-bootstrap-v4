@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeStates } from '../config/Styles';
+import { BadgeStates } from '../config/BadgeConfig';
 
 export default class Badge extends React.Component {
     render() {
