@@ -1,22 +1,14 @@
 # react-bootstrap-v4
 
-   * [gh-md-toc](#gh-md-toc)
+   * [Alert](#alert-component)
    * [Table of contents](#table-of-contents)
-   * [Installation](#installation)
-   * [Usage](#usage)
-      * [STDIN](#stdin)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-      * [Auto insert and update TOC](#auto-insert-and-update-toc)
-   * [Tests](#tests)
-   * [Dependency](#dependency)
 
 
-## Alert
+Alert
+=======
 
-### Properties
+Properties
+-----
 
 test | type | default | comment
 -- | -- | -- | -- 
