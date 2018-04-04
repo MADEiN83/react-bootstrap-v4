@@ -67,7 +67,7 @@ export default class App extends React.Component {
         title:'Go to user',
         content: 'Users',
         url:'http://google.fr',
-        disabled: true,
+        type: 'danger',
       },
       {
         title:'Go to user',
@@ -75,7 +75,7 @@ export default class App extends React.Component {
         type: 'primary',
       }];
 
-      return <ListGroup  cssStyles={{width: '18rem;'}} items={items}/>;
+      return <ListGroup cssStyles={{width: '18rem;'}} items={items}/>;
     }
 
     render() {
