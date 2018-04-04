@@ -1,8 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { CssClasses } from '../config/CardConfig';
 
-export default class Card extends React.Component {
+const propTypes = {
+    children: PropTypes.any.isRequired,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    imageAlt: PropTypes.string,
+    cssStyle: PropTypes.object,
+};
+
+const defaultProps = {
+    
+};
+
+class Card extends React.Component {
     render() {
         const { title, children, image, imageAlt, cssStyle, ...props } = this.props;
 
@@ -10,7 +23,7 @@ export default class Card extends React.Component {
             <div style={cssStyle} className={CssClasses.container}>
                 {
                     image 
-                    ? <img visible={false} className={CssClasses.image} src={image} alt={imageAlt} />
+                    ? <img className={CssClasses.image} src={image} alt={imageAlt} />
                     : null
                 }
 
@@ -22,3 +35,8 @@ export default class Card extends React.Component {
         );
     }
 }
+
+Card.propTypes = propTypes;
+Card.defaultProps = defaultProps;
+
+export default Card;

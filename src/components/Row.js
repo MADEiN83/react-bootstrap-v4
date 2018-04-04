@@ -1,9 +1,16 @@
 import React from 'react';
-//import { States } from '../config/AlertConfig';
+import PropTypes from 'prop-types';
 
-//import DismissButton from './DismissButton';
+const propTypes = {
+    children: PropTypes.any.isRequired,
+    cssStyles: PropTypes.string,
+};
 
-export default class Row extends React.Component {
+const defaultProps = {
+    
+};
+
+class Row extends React.Component {
     render() {
         const { children, cssStyles, ...props } = this.props;
 
@@ -14,3 +21,8 @@ export default class Row extends React.Component {
         );
     }
 }
+
+Row.propTypes = propTypes;
+Row.defaultProps = defaultProps;
+
+export default Row;

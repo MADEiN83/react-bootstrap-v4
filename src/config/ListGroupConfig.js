@@ -1,3 +1,14 @@
+export const AvailableTypes = [
+    'primary',
+    'secondary',
+    'success', 
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+];
+
 export const CssClasses = {
     container: 'list-group',
     item: 'list-group-item',
@@ -6,7 +17,7 @@ export const CssClasses = {
     badge: 'badge-pill',
 };
 
-export const States = {
+export const Types = {
     primary: 'list-group-item-primary',
     secondary: 'list-group-item-secondary',
     success: 'list-group-item-success',

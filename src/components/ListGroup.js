@@ -1,10 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HtmlUtils from '../utils/HtmlUtils';
-import { CssClasses, States } from '../config/ListGroupConfig';
+import { CssClasses, Types, AvailableTypes } from '../config/ListGroupConfig';
 import Badge from './Badge';
 
-export default class ListGroup extends React.Component {
+const propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        content: PropTypes.any.isRequired,
+        title: PropTypes.string,
+        url: PropTypes.string,
+        type: PropTypes.oneOf(AvailableTypes),
+        badge: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
+        badgeType: PropTypes.oneOf(AvailableTypes),
+        onClick: PropTypes.func,
+    })),
+    cssStyles: PropTypes.string,
+    header: PropTypes.string,
+};
+
+const defaultProps = {
+    
+};
+
+class ListGroup extends React.Component {
     _renderBadge(item) {
         if(!item.badge) {
             return null;
@@ -21,7 +43,7 @@ export default class ListGroup extends React.Component {
         return items.map((i, key) => {
             const activeClass = i.active ? CssClasses.active : null;
             const disabledClass = i.disabled ? CssClasses.disabled : null;
-            const stateClass = i.type ? States[i.type] : null;
+            const stateClass = Types[i.type];
             const badgeClass = i.badge ? 'd-flex justify-content-between align-items-center' : null;
             const className = HtmlUtils.htmlClass(CssClasses.item, activeClass, disabledClass, stateClass, badgeClass);
             const badge = this._renderBadge(i);
@@ -37,7 +59,7 @@ export default class ListGroup extends React.Component {
 
             return (
                 <li key={key} onClick={i.onClick} className={className}>
-                    {i.content}
+                     {i.content}
                     {badge}
                 </li>
             );
@@ -55,3 +77,8 @@ export default class ListGroup extends React.Component {
         );
     }
 }
+
+ListGroup.propTypes = propTypes;
+ListGroup.defaultProps = defaultProps;
+
+export default ListGroup;

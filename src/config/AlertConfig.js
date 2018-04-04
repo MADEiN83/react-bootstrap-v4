@@ -1,4 +1,15 @@
-export const States = {
+export const AvailableTypes = [
+    'primary',
+    'secondary',
+    'success', 
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+];
+
+export const Types = {
     primary: 'alert alert-primary',
     secondary: 'alert alert-secondary',
     success: 'alert alert-success',

@@ -1,11 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HtmlUtils from '../utils/HtmlUtils';
-import { States, CssClasses } from '../config/BadgeConfig';
+import { Types, AvailableTypes, CssClasses } from '../config/BadgeConfig';
 
-export default class Badge extends React.Component {
+const propTypes = {
+    children: PropTypes.any.isRequired,
+    type: PropTypes.oneOf(AvailableTypes),
+    cssStyles: PropTypes.object,
+    cssClass: PropTypes.string,
+    onClick: PropTypes.func
+};
+
+const defaultProps = {
+    type: AvailableTypes[0],
+};
+
+class Badge extends React.Component {
     render() {
         const { type, onClick, cssStyle, cssClass, children, ...props } = this.props;
-        const stateClass = type ? States[type] : CssClasses.baseBadge;
+        const stateClass = Types[type];
         const className = HtmlUtils.htmlClass(stateClass, cssClass);
 
         return (
@@ -15,3 +28,8 @@ export default class Badge extends React.Component {
         );
     }
 }
+
+Badge.propTypes = propTypes;
+Badge.defaultProps = defaultProps;
+
+export default Badge;

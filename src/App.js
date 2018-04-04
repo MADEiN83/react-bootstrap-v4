@@ -22,7 +22,17 @@ export default class App extends React.Component {
       console.log("Triggered!");
     }
 
-    _generateBreadcrumb() {
+    _alert() {
+      return <Alert onDismiss={this._test}>
+          <span>okok</span>
+        </Alert>;
+    }
+
+    _badge() {
+      return <Badge><span>jen sais rien</span></Badge>
+    }
+
+    _breadcrumb() {
       let items = [{
         title:'Go to home page',
         text: 'Home',
@@ -56,7 +66,8 @@ export default class App extends React.Component {
     }
 
     _card() {
-      return <Card title="ok" image='https://assets.servedby-buysellads.com/p/manage/asset/id/32053'>
+      return <Card title="ok" 
+      image='https://assets.servedby-buysellads.com/p/manage/asset/id/32053'>
         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" className="btn btn-primary">Go somewhere</a>
         </Card>;
@@ -86,16 +97,16 @@ export default class App extends React.Component {
     }
 
     _progress() {
-      return <Progress value='50' height={10} label={true} type='success' striped={true} animated={true}/>;
+      return <Progress value={50} height={10} label={true} type='success' striped={true} animated={true}/>;
     }
 
     _rowCol() {
       return (
         <Row>
-          <Column size={3} cssStyles={{backgroundColor :'blue'}}>
+          <Column cssStyles={{backgroundColor :'blue'}}>
             Coucou la col :p
           </Column>
-          <Column offsetSize='md' offsetLength={2} size={7} cssStyles={{backgroundColor :'red'}}>
+          <Column cssStyles={{backgroundColor :'red'}}>
             Coucou la col :p
           </Column>
         </Row>

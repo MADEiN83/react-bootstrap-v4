@@ -1,4 +1,17 @@
-export const States = {
+export const AvailableTypes = [
+    'primary',
+    'secondary',
+    'success', 
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+];
+
+export const AvailableSizes = ['sm', 'lg'];
+
+export const Types = {
     primary: 'btn btn-primary',
     secondary: 'btn btn-secondary',
     success: 'btn btn-success',
@@ -29,5 +42,4 @@ export const Sizes = {
 
 export const CssClasses = {
     block: 'btn-block',
-    defaultClass: States.primary
 }

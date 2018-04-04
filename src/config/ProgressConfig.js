@@ -1,4 +1,11 @@
-export const States = {
+export const AvailableTypes = [
+    'success',
+    'info',
+    'warning',
+    'danger',
+];
+
+export const Types = {
     success: 'bg-success',
     info: 'bg-info',
     warning: 'bg-warning',

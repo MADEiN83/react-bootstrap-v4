@@ -1,4 +1,15 @@
-export const States = {
+export const AvailableTypes = [
+    'primary',
+    'secondary',
+    'success', 
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+];
+
+export const Types = {
     primary: 'badge badge-primary',
     secondary: 'badge badge-secondary',
     success: 'badge badge-success',
@@ -7,8 +18,4 @@ export const States = {
     info: 'badge badge-info',
     light: 'badge badge-light',
     dark: 'badge badge-dark',
-};
-
-export const CssClasses = {
-    baseBadge: States['primary']
 };

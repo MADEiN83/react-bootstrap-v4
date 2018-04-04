@@ -1,16 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HtmlUtils from '../utils/HtmlUtils';
-import { States, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
+import { Types, AvaiableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
 
-export default class Button extends React.Component {
+const propTypes = {
+    type: PropTypes.oneOf(AvailableTypes),
+    size: PropTypes.oneOf(AvaiableSizes),
+    onClick: PropTypes.func,
+    cssStyle: PropTypes.string,
+    block: PropTypes.bool,
+    outline: PropTypes.bool,
+    children: PropTypes.any.isRequired,
+};
+
+const defaultProps = {
+    type: AvailableTypes[0],
+    block: false,
+    outline: false
+};
+
+class Button extends React.Component {
     render() {
         const { type, size, onClick, cssStyle, outline, block, children, disabled, ...props } = this.props;
-        let defaultClass = outline ? OutlineStates[type] : States[type];
-        const blockClass = block ? CssClasses.block : null;
-
-        if(!defaultClass) {
-            defaultClass = CssClasses.defaultClass;
-        }
+        const defaultClass = (outline ? OutlineStates[type] : Types[type]);
+        const blockClass = block && CssClasses.block;
 
         const className = HtmlUtils.htmlClass(defaultClass, Sizes[size], blockClass);
 
@@ -26,3 +39,8 @@ export default class Button extends React.Component {
         );
     }
 }
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+export default Button;

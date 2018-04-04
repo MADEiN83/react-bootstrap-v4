@@ -1,16 +1,38 @@
 import React from 'react';
-import { States, CssClasses } from '../config/ProgressConfig';
+import PropTypes from 'prop-types';
+import { Types, AvailableTypes, CssClasses } from '../config/ProgressConfig';
 import HtmlUtils from '../utils/HtmlUtils';
 
-export default class Progress extends React.Component {
+const propTypes = {
+    min: PropTypes.number,
+    max: PropTypes.number,
+    value: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(AvailableTypes),
+    height: PropTypes.number,
+    striped: PropTypes.bool,
+    animated: PropTypes.bool,
+    label: PropTypes.bool,
+};
+
+const defaultProps = {
+    height: 20,
+    value: 0,
+    min: 0,
+    max: 100,
+    type: AvailableTypes[0],
+    striped: false,
+    animated: false,
+    label: false,
+};
+
+class Progress extends React.Component {
     render() {
-        let { min, max, value, type, label, height, striped, ...props } = this.props;
-        const defaultClass = CssClasses.child;
-        const typeClass = States[type];
+        let { min, max, value, type, label, height, striped, animated, ...props } = this.props;
+        const typeClass = Types[type];
         const stripedClass = striped ? CssClasses.striped : null;
-        const animatedClass = striped ? CssClasses.animated : null;
+        const animatedClass = animated ? CssClasses.animated : null;
         
-        const className = HtmlUtils.htmlClass(defaultClass, typeClass, stripedClass, animatedClass);
+        const className = HtmlUtils.htmlClass(CssClasses.child, typeClass, stripedClass, animatedClass);
 
         if(!min || min < 0) {
             min = 0;
@@ -46,3 +68,8 @@ export default class Progress extends React.Component {
         );
     }
 }
+
+Progress.propTypes = propTypes;
+Progress.defaultProps = defaultProps;
+
+export default Progress;

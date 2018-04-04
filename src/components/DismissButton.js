@@ -1,6 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class DismissButton extends React.Component {
+const propTypes = {
+    label: PropTypes.string,
+    onDismiss: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+    label: 'close',
+};
+
+class DismissButton extends React.Component {
     render() {
         let { label, onDismiss, ...props } = this.props;
 
@@ -15,3 +25,8 @@ export default class DismissButton extends React.Component {
         );
     }
 }
+
+DismissButton.propTypes = propTypes;
+DismissButton.defaultProps = defaultProps;
+
+export default DismissButton;

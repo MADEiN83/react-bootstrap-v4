@@ -1,9 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HtmlLink from './html/HtmlLink';
 
 import { CssClasses } from '../config/BreadcrumbConfig';
 
-export default class Breadcrumb extends React.Component {
+const propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        url: PropTypes.string
+    }))
+};
+
+const defaultProps = {
+    
+};
+
+class Breadcrumb extends React.Component {
     _renderItems(items) {
         const itemsCount = items.length;
 
@@ -38,3 +51,8 @@ export default class Breadcrumb extends React.Component {
         );
     }
 }
+
+Breadcrumb.propTypes = propTypes;
+Breadcrumb.defaultProps = defaultProps;
+
+export default Breadcrumb;
