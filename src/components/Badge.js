@@ -8,8 +8,6 @@ export default class Badge extends React.Component {
         const stateClass = type ? States[type] : CssClasses.baseBadge;
         const className = HtmlUtils.htmlClass(stateClass, cssClass);
 
-        console.log(stateClass);
-
         return (
             <span style={cssStyle} onClick={onClick} className={className}>
                 {children}

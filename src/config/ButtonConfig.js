@@ -29,4 +29,5 @@ export const Sizes = {
 
 export const CssClasses = {
     block: 'btn-block',
+    defaultClass: States.primary
 }

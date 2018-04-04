@@ -5,8 +5,12 @@ import { States, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig
 export default class Button extends React.Component {
     render() {
         const { type, size, onClick, cssStyle, outline, block, children, disabled, ...props } = this.props;
-        const defaultClass = outline ? OutlineStates[type] : States[type];
+        let defaultClass = outline ? OutlineStates[type] : States[type];
         const blockClass = block ? CssClasses.block : null;
+
+        if(!defaultClass) {
+            defaultClass = CssClasses.defaultClass;
+        }
 
         const className = HtmlUtils.htmlClass(defaultClass, Sizes[size], blockClass);
 

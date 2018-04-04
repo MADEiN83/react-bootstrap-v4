@@ -28,7 +28,7 @@ export default class ListGroup extends React.Component {
             
             if(i.url) {
                 return (
-                    <a key={key} className={className} href={i.url} disabled={i.disabled}>
+                    <a key={key} onClick={i.onClick} className={className} href={i.url} disabled={i.disabled}>
                         {i.content}
                         {badge}
                     </a>
@@ -36,7 +36,7 @@ export default class ListGroup extends React.Component {
             }
 
             return (
-                <li key={key} className={className}>
+                <li key={key} onClick={i.onClick} className={className}>
                     {i.content}
                     {badge}
                 </li>

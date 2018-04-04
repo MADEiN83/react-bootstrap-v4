@@ -6,6 +6,7 @@ import Button from './components/Button';
 import Breadcrumb from './components/Breadcrumb';
 import Card from './components/Card';
 import ListGroup from './components/ListGroup';
+import Progress from './components/Progress';
 
 export default class App extends React.Component {
     constructor(props){
@@ -40,7 +41,7 @@ export default class App extends React.Component {
     _button() {
       return (
         <div>
-          <Button type='success'>Click me</Button>
+          <Button>Click me</Button>
           <br />
           <Button type='success' block={false} outline={false}>Click me</Button>
           <br />
@@ -75,13 +76,18 @@ export default class App extends React.Component {
         title:'Go to user',
         content: 'Users',
         type: 'primary',
+        onClick: this._test
       }];
 
       return <ListGroup cssStyles={{width: '18rem;'}} items={items}/>;
     }
 
+    _progress() {
+      return <Progress value='50' height={10} label={true} type='success' striped={true} animated={true}/>;
+    }
+
     render() {
-      let view = this._ListGroup();
+      let view = this._progress();
 
       return (
         <main className="container">
