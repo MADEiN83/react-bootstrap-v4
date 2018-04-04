@@ -5,6 +5,7 @@ import Badge from './components/Badge';
 import Button from './components/Button';
 import Breadcrumb from './components/Breadcrumb';
 import Card from './components/Card';
+import ListGroup from './components/ListGroup';
 
 export default class App extends React.Component {
     constructor(props){
@@ -37,7 +38,17 @@ export default class App extends React.Component {
     }
 
     _button() {
-      return <Button type='success' block={false} outline={false}>Click me</Button>;
+      return (
+        <div>
+          <Button type='success'>Click me</Button>
+          <br />
+          <Button type='success' block={false} outline={false}>Click me</Button>
+          <br />
+          <Button type='danger' block={true} outline={false}>Click me</Button>
+          <br />
+          <Button type='dark' block={true} outline={true}>Click me</Button>
+        </div>
+      );
     }
 
     _card() {
@@ -47,8 +58,28 @@ export default class App extends React.Component {
         </Card>;
     }
 
+    _ListGroup() {
+      let items = [{
+        title:'Go to home page',
+        text: 'Home',
+        active: true,
+      },
+      {
+        title:'Go to user',
+        text: 'Users',
+        url:'http://google.fr',
+        disabled: true,
+      },
+      {
+        title:'Go to user',
+        text: 'Users',
+      }];
+
+      return <ListGroup  cssStyles={{width: '18rem;'}} items={items}/>;
+    }
+
     render() {
-      let view = this._card();
+      let view = this._ListGroup();
 
       return (
         <main className="container">
