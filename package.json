@@ -1,6 +1,9 @@
 {
-  "name": "react-app",
+  "name": "react-bootstrap-v4",
   "version": "0.1.0",
+  "author": {
+    "name": "Anthony DI STEFANO"
+  },
   "private": true,
   "dependencies": {
     "react": "^16.3.1",
