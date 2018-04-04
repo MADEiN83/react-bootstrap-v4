@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import HtmlUtils from '../utils/HtmlUtils';
+import { htmlClass } from '../utils/HtmlUtils';
 import { CssClasses, Types, AvailableTypes } from '../config/ListGroupConfig';
 import Badge from './Badge';
 
@@ -45,12 +45,14 @@ class ListGroup extends React.Component {
             const disabledClass = i.disabled ? CssClasses.disabled : null;
             const stateClass = Types[i.type];
             const badgeClass = i.badge ? 'd-flex justify-content-between align-items-center' : null;
-            const className = HtmlUtils.htmlClass(CssClasses.item, activeClass, disabledClass, stateClass, badgeClass);
+            const className = htmlClass(CssClasses.item, activeClass, disabledClass, stateClass, badgeClass);
             const badge = this._renderBadge(i);
+
+            const htmlProps = { key, onClick: i.onClick, className, href: i.url, disabled: i.disabled };
             
             if(i.url) {
                 return (
-                    <a key={key} onClick={i.onClick} className={className} href={i.url} disabled={i.disabled}>
+                    <a {...htmlProps}>
                         {i.content}
                         {badge}
                     </a>

@@ -30,10 +30,9 @@ class Breadcrumb extends React.Component {
             }
 
             return (
-                <li key={key}
-                    className={className}>
+                <BreadcrumbItem key={key} className={className}>
                     {children}
-                </li>
+                </BreadcrumbItem>
             );
         });
     }
@@ -48,6 +47,16 @@ class Breadcrumb extends React.Component {
                     {view}
                 </ol>
             </nav>
+        );
+    }
+}
+
+class BreadcrumbItem extends React.Component {
+    render() {
+        return (
+            <li className={this.props.className}>
+                {this.props.children}
+            </li>
         );
     }
 }

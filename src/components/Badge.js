@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HtmlUtils from '../utils/HtmlUtils';
+import { htmlClass } from '../utils/HtmlUtils';
 import { Types, AvailableTypes, CssClasses } from '../config/BadgeConfig';
 
 const propTypes = {
     children: PropTypes.any.isRequired,
     type: PropTypes.oneOf(AvailableTypes),
-    cssStyles: PropTypes.object,
-    cssClass: PropTypes.string,
+    styles: PropTypes.object,
+    className: PropTypes.string,
     onClick: PropTypes.func
 };
 
@@ -17,12 +17,12 @@ const defaultProps = {
 
 class Badge extends React.Component {
     render() {
-        const { type, onClick, cssStyle, cssClass, children, ...props } = this.props;
-        const stateClass = Types[type];
-        const className = HtmlUtils.htmlClass(stateClass, cssClass);
-
+        const { type, onClick, style, className, children, ...props } = this.props;
+        const finalClassName = htmlClass(Types[type], className);
+        const htmlProps = { onClick, style, className: finalClassName };
+        
         return (
-            <span style={cssStyle} onClick={onClick} className={className}>
+            <span {...htmlProps}>
                 {children}
             </span>
         );

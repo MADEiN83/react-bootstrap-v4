@@ -29,7 +29,7 @@ export default class App extends React.Component {
     }
 
     _badge() {
-      return <Badge><span>jen sais rien</span></Badge>
+      return <Badge>6ix9ine</Badge>
     }
 
     _breadcrumb() {
@@ -54,7 +54,7 @@ export default class App extends React.Component {
     _button() {
       return (
         <div>
-          <Button>Click me</Button>
+          <Button onClick={this._test}>Click me</Button>
           <br />
           <Button type='success' block={false} outline={false}>Click me</Button>
           <br />
@@ -67,7 +67,7 @@ export default class App extends React.Component {
 
     _card() {
       return <Card title="ok" 
-      image='https://assets.servedby-buysellads.com/p/manage/asset/id/32053'>
+      src='https://assets.servedby-buysellads.com/p/manage/asset/id/32053'>
         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" className="btn btn-primary">Go somewhere</a>
         </Card>;
@@ -114,7 +114,7 @@ export default class App extends React.Component {
     }
 
     render() {
-      let view = this._rowCol();
+      let view = this._card();
 
       return (
         <main className="container">

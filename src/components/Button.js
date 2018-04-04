@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HtmlUtils from '../utils/HtmlUtils';
+import { htmlClass } from '../utils/HtmlUtils';
 import { Types, AvaiableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
 
 const propTypes = {
     type: PropTypes.oneOf(AvailableTypes),
     size: PropTypes.oneOf(AvaiableSizes),
     onClick: PropTypes.func,
-    cssStyle: PropTypes.string,
+    style: PropTypes.string,
     block: PropTypes.bool,
     outline: PropTypes.bool,
     children: PropTypes.any.isRequired,
@@ -21,19 +21,14 @@ const defaultProps = {
 
 class Button extends React.Component {
     render() {
-        const { type, size, onClick, cssStyle, outline, block, children, disabled, ...props } = this.props;
+        const { type, size, onClick, style, outline, block, children, disabled, ...props } = this.props;
         const defaultClass = (outline ? OutlineStates[type] : Types[type]);
         const blockClass = block && CssClasses.block;
-
-        const className = HtmlUtils.htmlClass(defaultClass, Sizes[size], blockClass);
+        const className = htmlClass(defaultClass, Sizes[size], blockClass);
+        const htmlProps = { style, onClick, className, disabled };
 
         return (
-            <button 
-                style={cssStyle}
-                onClick={onClick}
-                className={className}
-                disabled={disabled}
-                >
+            <button {...htmlProps}>
                 {children}
             </button>
         );

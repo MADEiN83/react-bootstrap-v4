@@ -52,7 +52,6 @@ class Progress extends React.Component {
             height = 20;
         }
 
-
         return (
             <div className={CssClasses.container} style={{height: height + 'px'}}>
                 <div

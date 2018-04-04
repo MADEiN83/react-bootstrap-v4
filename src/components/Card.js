@@ -6,29 +6,35 @@ import { CssClasses } from '../config/CardConfig';
 const propTypes = {
     children: PropTypes.any.isRequired,
     title: PropTypes.string,
-    image: PropTypes.string,
-    imageAlt: PropTypes.string,
-    cssStyle: PropTypes.object,
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    style: PropTypes.object,
 };
 
 const defaultProps = {
-    
+    alt: 'image',
 };
 
 class Card extends React.Component {
     render() {
-        const { title, children, image, imageAlt, cssStyle, ...props } = this.props;
+        const { title, children, src, alt, style, ...props } = this.props;
+        const mainHtmlProps = { style, className: CssClasses.container };
+        const imageHtmlProps = { className: CssClasses.image, src, alt };
+        
+        const htmlImage = src 
+            ? <img {...imageHtmlProps} />
+            : null;
+
+        const htmlTitle = title 
+            ? <h5 className={CssClasses.title}>{title}</h5>
+            : null;
 
         return (
-            <div style={cssStyle} className={CssClasses.container}>
-                {
-                    image 
-                    ? <img className={CssClasses.image} src={image} alt={imageAlt} />
-                    : null
-                }
+            <div {...mainHtmlProps}>
+                {htmlImage}
 
                 <div className={CssClasses.body}>
-                    {title ? <h5 className={CssClasses.title}>{title}</h5> : null}
+                    {htmlTitle}
                     {children}
                 </div>
             </div>

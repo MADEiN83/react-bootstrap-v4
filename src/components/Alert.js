@@ -7,25 +7,27 @@ import DismissButton from './DismissButton';
 const propTypes = {
     children: PropTypes.any.isRequired,
     type: PropTypes.oneOf(AvailableTypes),
-    cssStyles: PropTypes.object,
+    style: PropTypes.object,
     onDismiss: PropTypes.func,
     closeLabel: PropTypes.string,
 };
 
 const defaultProps = {
     type: AvailableTypes[0],
+    role: 'alert',
 };
 
 class Alert extends React.Component {
     render() {
-        const { type, onDismiss, cssStyle, closeLabel, children, ...props } = this.props;
-        let className = Types[type];
+        const { type, onDismiss, style, closeLabel, children, ...props } = this.props;
+        const alertHtmlProps = { style, className: Types[type] };
+        const dismissButtonHtmlProps = { closeLabel, onDismiss };
 
         return (
-            <div style={cssStyle} className={className} role="alert">
+            <div {...alertHtmlProps} role="alert">
                 {children}
 
-                <DismissButton label={closeLabel} onDismiss={onDismiss} />
+                <DismissButton {...dismissButtonHtmlProps} />
             </div>
         );
     }
