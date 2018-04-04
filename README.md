@@ -11,7 +11,7 @@
 
 ## Alert
 
-### Properties
+### Alert properties
 
 test | type | default | comment
 -- | -- | -- | -- 
@@ -19,12 +19,12 @@ test | type | default | comment
 `cssStyle` | string | | Custom CSS style 
 `closeLabel` | string | close | ARIA label for the close button 
 
-### Events
+### Alert events
 name | type | comment
 -- | -- | --
  `onDismiss` | event | Handler for the close button 
 
-### Example
+### Alert example
 
 ```js
 ReactDOM.render(<Alert type='danger' />,
