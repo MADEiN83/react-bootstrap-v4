@@ -68,6 +68,8 @@ export default class App extends React.Component {
         content: 'Users',
         url:'http://google.fr',
         type: 'danger',
+        badge: 7,
+        badgeType: 'dark'
       },
       {
         title:'Go to user',

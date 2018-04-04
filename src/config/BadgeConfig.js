@@ -8,3 +8,7 @@ export const States = {
     light: 'badge badge-light',
     dark: 'badge badge-dark',
 };
+
+export const CssClasses = {
+    baseBadge: States['primary']
+};

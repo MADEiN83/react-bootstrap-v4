@@ -1,10 +1,14 @@
 import React from 'react';
-import { States } from '../config/BadgeConfig';
+import HtmlUtils from '../utils/HtmlUtils';
+import { States, CssClasses } from '../config/BadgeConfig';
 
 export default class Badge extends React.Component {
     render() {
-        const { type, onClick, cssStyle, children, ...props } = this.props;
-        let className = States[type];
+        const { type, onClick, cssStyle, cssClass, children, ...props } = this.props;
+        const stateClass = type ? States[type] : CssClasses.baseBadge;
+        const className = HtmlUtils.htmlClass(stateClass, cssClass);
+
+        console.log(stateClass);
 
         return (
             <span style={cssStyle} onClick={onClick} className={className}>

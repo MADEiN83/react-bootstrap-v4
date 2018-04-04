@@ -3,6 +3,7 @@ export const CssClasses = {
     item: 'list-group-item',
     active: 'active',
     disabled: 'disabled',
+    badge: 'badge-pill',
 };
 
 export const States = {
