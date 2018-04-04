@@ -114,7 +114,7 @@ export default class App extends React.Component {
     }
 
     render() {
-      let view = this._card();
+      let view = this._ListGroup();
 
       return (
         <main className="container">

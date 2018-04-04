@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HtmlLink from './html/HtmlLink';
+import BreadcrumbItem from './BreadcrumbItem';
 
 import { CssClasses } from '../config/BreadcrumbConfig';
 
@@ -21,16 +22,16 @@ class Breadcrumb extends React.Component {
         const itemsCount = items.length;
 
         return items.map((i, key) => {
-            let className = CssClasses.item;
+            let active = false;
             let children = i.text;
             
             if(key != itemsCount -1) {
-                className += CssClasses.active;
+                active = true;
                 children = <HtmlLink url={i.url} title={i.title}>{i.text}</HtmlLink>;
             }
 
             return (
-                <BreadcrumbItem key={key} className={className}>
+                <BreadcrumbItem key={key} active={active}>
                     {children}
                 </BreadcrumbItem>
             );
@@ -47,16 +48,6 @@ class Breadcrumb extends React.Component {
                     {view}
                 </ol>
             </nav>
-        );
-    }
-}
-
-class BreadcrumbItem extends React.Component {
-    render() {
-        return (
-            <li className={this.props.className}>
-                {this.props.children}
-            </li>
         );
     }
 }

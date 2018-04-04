@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { htmlClass } from '../utils/HtmlUtils';
-import { Types, AvaiableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
+import { Types, AvailableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
 
 const propTypes = {
     type: PropTypes.oneOf(AvailableTypes),
-    size: PropTypes.oneOf(AvaiableSizes),
+    size: PropTypes.oneOf(AvailableSizes),
     onClick: PropTypes.func,
     style: PropTypes.string,
     block: PropTypes.bool,

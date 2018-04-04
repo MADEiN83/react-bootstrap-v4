@@ -15,6 +15,7 @@ export const CssClasses = {
     active: 'active',
     disabled: 'disabled',
     badge: 'badge-pill',
+    badgeContainer: 'd-flex justify-content-between align-items-center',
 };
 
 export const Types = {
