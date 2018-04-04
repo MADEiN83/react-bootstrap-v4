@@ -61,18 +61,17 @@ export default class App extends React.Component {
     _ListGroup() {
       let items = [{
         title:'Go to home page',
-        text: 'Home',
-        active: true,
+        content: <span style={{color:'red'}}>Hoome</span>,
       },
       {
         title:'Go to user',
-        text: 'Users',
+        content: 'Users',
         url:'http://google.fr',
         disabled: true,
       },
       {
         title:'Go to user',
-        text: 'Users',
+        content: 'Users',
       }];
 
       return <ListGroup  cssStyles={{width: '18rem;'}} items={items}/>;

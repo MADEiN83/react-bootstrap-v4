@@ -9,7 +9,7 @@ export default class ListGroup extends React.Component {
             const active = i.active ? CssClasses.active : '';
             const disabled = i.disabled ? CssClasses.disabled : '';
             const className = HtmlUtils.htmlClass(CssClasses.item, active, disabled);
-            const content = i.url ? <a href={i.url}>{i.text}</a> : i.text;
+            const content = i.url ? <a href={i.url}>{i.content}</a> : i.content;
             
             return (
                 <li key={key} className={className}>

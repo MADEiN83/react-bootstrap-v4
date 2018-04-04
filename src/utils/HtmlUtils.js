@@ -1,7 +1,13 @@
 const HtmlUtils = {
+    /**
+     * Concat all CSS classes into a single string.
+     * @param {all classes} classes 
+     */
     htmlClass(...classes) {
-        const result = classes.filter(function (val) { return val; }).join(' ');
-        return result.trim();
+        let result = classes.filter(function (val) { return val; }).join(' ');
+        result = result.trim();
+
+        return result;
     }
 }
 
