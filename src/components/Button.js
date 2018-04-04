@@ -1,18 +1,14 @@
 import React from 'react';
+import HtmlUtils from '../utils/HtmlUtils';
 import { ButtonStates, ButtonOutlineStates, ButtonSizes, CssClasses } from '../config/ButtonConfig';
 
 export default class Button extends React.Component {
     render() {
         const { type, size, onClick, cssStyle, outline, block, children, disabled, ...props } = this.props;
-        let className = outline ? ButtonOutlineStates[type] : ButtonStates[type];
+        const defaultClass = outline ? ButtonOutlineStates[type] : ButtonStates[type];
+        const blockClass = block ? CssClasses.block : null;
 
-        if(size) {
-            className += ButtonSizes[size];
-        }
-
-        if(block) {
-            className += CssClasses.block;
-        }
+        const className = HtmlUtils.htmlClass(defaultClass, ButtonSizes[size], blockClass);
 
         return (
             <button 
