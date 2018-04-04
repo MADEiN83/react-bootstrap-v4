@@ -7,10 +7,12 @@
       * [Properties](#alert-properties)
       * [Events](#alert-events)
       * [Example](#alert-example)
-
+   * [Badge](#badge)
+      * [Properties](#badge-properties)
+      * [Events](#badge-events)
+      * [Example](#badge-example)
 
 ## Alert
-
 ### Alert properties
 
 test | type | default | comment
@@ -27,12 +29,26 @@ name | type | comment
 ### Alert example
 
 ```js
-ReactDOM.render(<Alert type='danger' />,
+ReactDOM.render(
+  <Alert type='danger' onClick={this._onClickHandler}>
+    <p>Your content here</p>
+  </Alert>,
   document.getElementById('root')
 );
 ```
 
-gh-md-toc
-=========
+## Badge
+### Badge properties
+todo
+### Badge events
+todo
+### Badge example
 
-ok
+```js
+ReactDOM.render(
+  <Badge type='danger' onClick={this._onClickHandler}>
+    <p>Your content here</p>
+  </Badge>,
+  document.getElementById('root')
+);
+```
