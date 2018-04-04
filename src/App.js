@@ -8,6 +8,9 @@ import Card from './components/Card';
 import ListGroup from './components/ListGroup';
 import Progress from './components/Progress';
 
+import Row from './components/Row';
+import Column from './components/Column';
+
 export default class App extends React.Component {
     constructor(props){
       super(props);
@@ -86,8 +89,21 @@ export default class App extends React.Component {
       return <Progress value='50' height={10} label={true} type='success' striped={true} animated={true}/>;
     }
 
+    _rowCol() {
+      return (
+        <Row>
+          <Column size={3} cssStyles={{backgroundColor :'blue'}}>
+            Coucou la col :p
+          </Column>
+          <Column offsetSize='md' offsetLength={2} size={7} cssStyles={{backgroundColor :'red'}}>
+            Coucou la col :p
+          </Column>
+        </Row>
+      );
+    }
+
     render() {
-      let view = this._progress();
+      let view = this._rowCol();
 
       return (
         <main className="container">
