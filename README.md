@@ -1,14 +1,14 @@
 # react-bootstrap-v4
 
+# Table of contents
+
    * [Alert](#alert)
    * [Table of contents](#table-of-contents)
 
 
-Alert
-=======
+## Alert
 
-Properties
------
+### Properties
 
 test | type | default | comment
 -- | -- | -- | -- 
