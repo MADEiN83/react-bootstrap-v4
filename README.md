@@ -1,6 +1,6 @@
 # react-bootstrap-v4
 
-   * [Alert](#alert-component)
+   * [Alert](#alert)
    * [Table of contents](#table-of-contents)
 
 
