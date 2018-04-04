@@ -72,6 +72,7 @@ export default class App extends React.Component {
       {
         title:'Go to user',
         content: 'Users',
+        type: 'primary',
       }];
 
       return <ListGroup  cssStyles={{width: '18rem;'}} items={items}/>;

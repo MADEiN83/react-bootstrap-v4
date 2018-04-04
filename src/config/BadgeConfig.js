@@ -1,4 +1,4 @@
-export const BadgeStates = {
+export const States = {
     primary: 'badge badge-primary',
     secondary: 'badge badge-secondary',
     success: 'badge badge-success',

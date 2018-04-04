@@ -1,4 +1,4 @@
-export const ButtonStates = {
+export const States = {
     primary: 'btn btn-primary',
     secondary: 'btn btn-secondary',
     success: 'btn btn-success',
@@ -10,7 +10,7 @@ export const ButtonStates = {
     link: 'btn btn-link',
 };
 
-export const ButtonOutlineStates = {
+export const OutlineStates = {
     primary: 'btn btn-outline-primary',
     secondary: 'btn btn-outline-secondary',
     success: 'btn btn-outline-success',
@@ -22,7 +22,7 @@ export const ButtonOutlineStates = {
     link: 'btn btn-outline-link',
 };
 
-export const ButtonSizes = {
+export const Sizes = {
     sm: 'btn-sm',
     lg: 'btn-lg',
 }

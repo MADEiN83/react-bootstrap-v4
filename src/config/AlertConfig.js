@@ -1,4 +1,4 @@
-export const AlertStates = {
+export const States = {
     primary: 'alert alert-primary',
     secondary: 'alert alert-secondary',
     success: 'alert alert-success',

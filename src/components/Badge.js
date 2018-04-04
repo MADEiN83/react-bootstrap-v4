@@ -1,10 +1,10 @@
 import React from 'react';
-import { BadgeStates } from '../config/BadgeConfig';
+import { States } from '../config/BadgeConfig';
 
 export default class Badge extends React.Component {
     render() {
         const { type, onClick, cssStyle, children, ...props } = this.props;
-        let className = BadgeStates[type];
+        let className = States[type];
 
         return (
             <span style={cssStyle} onClick={onClick} className={className}>
