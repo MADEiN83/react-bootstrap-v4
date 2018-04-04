@@ -2,8 +2,11 @@
 
 # Table of contents
 
-   * [Alert](#alert)
    * [Table of contents](#table-of-contents)
+   * [Alert](#alert)
+      * [Properties](#alert-properties)
+      * [Events](#alert-events)
+      * [Example](#alert-example)
 
 
 ## Alert
