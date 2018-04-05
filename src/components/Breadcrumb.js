@@ -26,9 +26,9 @@ class Breadcrumb extends React.Component {
             let active = false;
             let children = i.text;
             
-            if(isLast(key, itemsCount)) {
+            if(!isLast(key, itemsCount)) {
                 active = true;
-                children = <HtmlLink url={i.url} title={i.title}>{i.text}</HtmlLink>;
+                children = <HtmlLink href={i.url} title={i.title}>{i.text}</HtmlLink>;
             }
 
             return (

@@ -1,6 +1,19 @@
+const htmlKeys = [
+    'style',
+    'onClick',
+    'className',
+    'disabled',
+    'href',
+    'min',
+    'max',
+    'value',
+    'src',
+    'alt',
+    'title',
+];
+
 export function htmlProps(props, otherProperties) {
     let r = otherProperties || {};
-    let htmlKeys = ['style', 'onClick', 'className', 'disabled', 'href', 'min', 'max', 'value', 'src', 'alt'];
 
     for(const key of htmlKeys) {
         if(!props[key]) {
@@ -23,11 +36,12 @@ export function first(array) {
 }
 
 export function last(array) {
-    if(!array || array.length <= 0) {
+    const length = array.length;
+    if(!array || length <= 0) {
         return null;
     }
 
-    return array[array.length - 1];
+    return array[length - 1];
 }
 
 export function isLast(i, data) {

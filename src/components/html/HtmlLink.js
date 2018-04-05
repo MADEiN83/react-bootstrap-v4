@@ -1,11 +1,13 @@
 import React from 'react';
+import { htmlProps } from '../../utils/HtmlUtils';
 
 export default class HtmlLink extends React.Component {
     render() {
-        const { title, url, cssStyle, children, onClick } = this.props;
+        const { children, ...props } = this.props;
+        const alertHtmlProps = htmlProps(props);
 
         return (
-            <a href={url} title={title} style={cssStyle} onClick={onClick}>
+            <a {...alertHtmlProps}>
                 {children}
             </a>
         );

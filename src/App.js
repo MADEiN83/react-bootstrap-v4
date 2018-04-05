@@ -148,7 +148,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    let view = this._table();
+    let view = this._breadcrumb();
 
     return (
       <main className="container">
