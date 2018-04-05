@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass } from '../utils/HtmlUtils';
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
 import { Sizes } from '../config/ColumnConfig';
 
 const propTypes = {
@@ -17,18 +17,15 @@ const defaultProps = {
 
 class Column extends React.Component {
     render() {
-        const { children, style, size, offsetSize, offsetLength, ...props } = this.props;
-        const sizeClass = size ? 'col-' + size : 'col';
-        const offsetClass = offsetSize && offsetLength
-            ? 'offset-' + offsetSize + '-' + offsetLength
-            : null;
-
-        const className = htmlClass(sizeClass, offsetClass);
-
-        const htmlProps = { className, style };
+        const { children, size, offsetSize, offsetLength, ...props } = this.props;
+        const className = htmlClasses([
+            [size, 'col-' + size, 'col'],
+            [offsetSize && offsetLength, 'offset-' + offsetSize + '-' + offsetLength],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
         
         return (
-            <div {...htmlProps}>
+            <div {...htmlProperties}>
                 {children}
             </div>
         );

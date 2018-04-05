@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
 import { CssClasses } from '../config/CardConfig';
 
 const propTypes = {
@@ -17,8 +18,7 @@ const defaultProps = {
 
 class Card extends React.Component {
     render() {
-        const { title, children, src, alt, style, ...props } = this.props;
-        const mainHtmlProps = { style, className: CssClasses.container };
+        const { title, children, src, alt, ...props } = this.props;
         const imageHtmlProps = { className: CssClasses.image, src, alt };
         
         const htmlImage = src 
@@ -28,9 +28,14 @@ class Card extends React.Component {
         const htmlTitle = title 
             ? <h5 className={CssClasses.title}>{title}</h5>
             : null;
+            
+        const className = htmlClasses([
+            [CssClasses.container],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
 
         return (
-            <div {...mainHtmlProps}>
+            <div {...htmlProperties}>
                 {htmlImage}
 
                 <div className={CssClasses.body}>

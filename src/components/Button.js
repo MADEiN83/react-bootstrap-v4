@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass, first } from '../utils/HtmlUtils';
+import { first, htmlProps, htmlClasses } from '../utils/HtmlUtils';
 import { Types, AvailableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
 
 const propTypes = {
@@ -21,14 +21,16 @@ const defaultProps = {
 
 class Button extends React.Component {
     render() {
-        const { type, size, onClick, style, outline, block, children, disabled, ...props } = this.props;
-        const defaultClass = (outline ? OutlineStates[type] : Types[type]);
-        const blockClass = block && CssClasses.block;
-        const className = htmlClass(defaultClass, Sizes[size], blockClass);
-        const htmlProps = { style, onClick, className, disabled };
+        const { type, size, outline, block, children, ...props } = this.props;
+        const className = htmlClasses([
+            [outline, OutlineStates[type], Types[type]],
+            [block, CssClasses.block],
+            [Sizes[size]]
+        ]);
+        const htmlProperties = htmlProps(props, { className });
 
         return (
-            <button {...htmlProps}>
+            <button {...htmlProperties}>
                 {children}
             </button>
         );

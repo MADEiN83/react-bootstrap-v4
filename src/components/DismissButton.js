@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { htmlProps, htmlClasses } from '../utils/HtmlUtils';
+
 const propTypes = {
     label: PropTypes.string,
     onDismiss: PropTypes.func.isRequired,
@@ -13,13 +15,17 @@ const defaultProps = {
 class DismissButton extends React.Component {
     render() {
         let { label, onDismiss, ...props } = this.props;
+        const className = htmlClasses([
+            ['close'],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
 
         if(!onDismiss) {
-            return '';
+            return null;
         }
 
         return (
-            <button onClick={onDismiss} type="button" className="close" data-dismiss="alert" aria-label={label}>
+            <button {...htmlProperties} onClick={onDismiss} type="button" data-dismiss="alert" aria-label={label}>
                 <span aria-hidden="true">&times;</span>
             </button>
         );

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { first } from '../utils/HtmlUtils';
+import { first, htmlClasses, htmlProps } from '../utils/HtmlUtils';
 import { AvailableTypes, Types } from '../config/AlertConfig';
 
 import DismissButton from './DismissButton';
@@ -19,8 +19,11 @@ const defaultProps = {
 
 class Alert extends React.Component {
     render() {
-        const { type, onDismiss, style, closeLabel, children, ...props } = this.props;
-        const alertHtmlProps = { style, className: Types[type] };
+        const { type, onDismiss, closeLabel, children, ...props } = this.props;
+        const className = htmlClasses([
+            [Types[type]],
+        ]);
+        const alertHtmlProps = htmlProps(props, { className });
         const dismissButtonHtmlProps = { closeLabel, onDismiss };
         
         return (

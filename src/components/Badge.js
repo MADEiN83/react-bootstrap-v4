@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass, first } from '../utils/HtmlUtils';
-import { Types, AvailableTypes, CssClasses } from '../config/BadgeConfig';
+import { htmlClasses, htmlProps, first } from '../utils/HtmlUtils';
+import { Types, AvailableTypes } from '../config/BadgeConfig';
 
 const propTypes = {
     children: PropTypes.any.isRequired,
@@ -17,12 +17,14 @@ const defaultProps = {
 
 class Badge extends React.Component {
     render() {
-        const { type, onClick, style, className, children, ...props } = this.props;
-        const finalClassName = htmlClass(Types[type], className);
-        const htmlProps = { onClick, style, className: finalClassName };
+        const { type, children, ...props } = this.props;
+        const className = htmlClasses([
+            [Types[type]],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
         
         return (
-            <span {...htmlProps}>
+            <span {...htmlProperties}>
                 {children}
             </span>
         );

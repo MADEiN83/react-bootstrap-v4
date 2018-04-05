@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { htmlProps } from '../utils/HtmlUtils';
+
 const propTypes = {
     children: PropTypes.any.isRequired,
     style: PropTypes.string,
@@ -14,18 +16,19 @@ const defaultProps = {
 
 class TableCell extends React.Component {
     render() {
-        const { children, style, onClick, header, ...props } = this.props;
+        const { children, header, ...props } = this.props;
+        const htmlProperties = htmlProps(props);
 
         if(header) {
             return (
-                <th style={style} onClick={onClick}>
+                <th {...htmlProperties}>
                     {children}
                 </th>
             );
         }
 
         return (
-            <td style={style} onClick={onClick}>
+            <td {...htmlProperties}>
                 {children}
             </td>
         );

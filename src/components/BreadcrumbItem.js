@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { htmlClass } from '../utils/HtmlUtils';
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
 import { CssClasses } from '../config/BreadcrumbConfig';
 
 const propTypes = {
@@ -14,12 +14,15 @@ const defaultProps = {
 
 class BreadcrumbItem extends React.Component {
     render() {
-        const { active } = this.props;
-        const activeClass = active ? CssClasses.active : null;
-        const className = htmlClass(CssClasses.item, activeClass)
+        const { active, ...props } = this.props;
+        const className = htmlClasses([
+            [CssClasses.item],
+            [active, CssClasses.active],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
         
         return (
-            <li className={className}>
+            <li {...htmlProperties}>
                 {this.props.children}
             </li>
         );

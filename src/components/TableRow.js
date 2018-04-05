@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { htmlProps } from '../utils/HtmlUtils';
+
 const propTypes = {
     children: PropTypes.any.isRequired,
     style: PropTypes.string,
+    className: PropTypes.string,
     header: PropTypes.bool,
     onClick: PropTypes.func,
 };
@@ -14,10 +17,11 @@ const defaultProps = {
 
 class TableRow extends React.Component {
     render() {
-        const { children, style, onClick, ...props } = this.props;
+        const { children, ...props } = this.props;
+        const htmlProperties = htmlProps(props);
 
         return (
-            <tr style={style} onClick={onClick}>
+            <tr {...htmlProperties}>
                 {children}
             </tr>
         );

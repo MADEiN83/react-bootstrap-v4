@@ -1,12 +1,16 @@
-/**
- * Concat all CSS classes into a single string.
- * @param {all classes} classes 
- */
-export function htmlClass(...classes) {
-    let result = classes.filter(function (val) { return val; }).join(' ');
-    result = result.trim();
+export function htmlProps(props, otherProperties) {
+    let r = otherProperties || {};
+    let htmlKeys = ['style', 'onClick', 'className', 'disabled', 'href', 'min', 'max', 'value', 'src', 'alt'];
 
-    return result;
+    for(const key of htmlKeys) {
+        if(!props[key]) {
+            continue;
+        }
+
+        ({ [key]: r[key] } = props);
+    }
+
+    return r;
 }
 
 export function first(array) {
@@ -14,7 +18,8 @@ export function first(array) {
         return null;
     }
 
-    return array[0];
+    const [first] = array;
+    return first;
 }
 
 export function last(array) {
@@ -35,4 +40,24 @@ export function isLast(i, data) {
     }
 
     return false;
+}
+
+/**
+ * Concat all CSS classes into a single string.
+ * @param {all classes} classes 
+ */
+export function htmlClasses(array) {
+    let r = [];
+    for(let row of array) {
+        let [condition, trueValue, falseValue] = row;
+
+        if(condition && !trueValue && !falseValue) {
+            r.push(condition);
+        } else {
+            r.push(condition ? trueValue : falseValue);
+        }
+    }
+
+    const result = r.filter(function (val) { return val; }).join(' ');
+    return result;
 }

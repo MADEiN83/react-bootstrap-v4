@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { htmlClass } from '../utils/HtmlUtils';
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
 import { CssClasses, Types, AvailableTypes } from '../config/ListGroupConfig';
 import Badge from './Badge';
 
@@ -38,20 +38,21 @@ class ListGroupItem extends React.Component {
     }
 
     render() {
-        const { active, disabled, type, badge, badgeType, onClick, href, content } = this.props.item;
-
-        const activeClass = active ? CssClasses.active : null;
-        const disabledClass = disabled ? CssClasses.disabled : null;
-        const typeClass = Types[type];
-        const badgeClass = badge ? CssClasses.badgeContainer : null;
-        const className = htmlClass(CssClasses.item, activeClass, disabledClass, typeClass, badgeClass);
+        const { active, disabled, type, badge, badgeType, content, ...props } = this.props.item;
         const badgeComponent = this._renderBadge(badge, badgeType);
         
-        if(href) {
-            const htmlProps = { onClick, className, href, disabled };
-
+        const className = htmlClasses([
+            [CssClasses.item],
+            [active, CssClasses.active],
+            [disabled, CssClasses.disabled],
+            [Types[type]],
+            [badge, CssClasses.badgeContainer]
+        ]);
+        const htmlProperties = htmlProps(props, { className });
+        
+        if(htmlProperties.href) {
             return (
-                <a {...htmlProps}>
+                <a {...htmlProperties}>
                     {content}
                     {badgeComponent}
                 </a>
@@ -59,7 +60,7 @@ class ListGroupItem extends React.Component {
         }
 
         return (
-            <li onClick={onClick} className={className}>
+            <li {...htmlProperties}>
                 {content}
                 {badgeComponent}
             </li>

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass } from '../utils/HtmlUtils';
-
-import TableRow from './TableRow';
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
 
 const propTypes = {
     children: PropTypes.any.isRequired,
@@ -25,18 +23,19 @@ const defaultProps = {
 
 class Table extends React.Component {
     render() {
-        const { children, style, className, dark, striped, bordered, hover, small, ...props } = this.props;
-        const baseClass = 'table';
-        const darkClass = dark ? 'table-dark' : null;
-        const stripedClass = striped ? 'table-striped' : null;
-        const borderedClass = bordered ? 'table-bordered' : null;
-        const hoverClass = hover ? 'table-hover' : null;
-        const smallClass = small ? 'table-sm' : null;
-
-        const finalClassName = htmlClass(baseClass, className, darkClass, stripedClass, borderedClass, hoverClass, smallClass);
+        const { children, dark, striped, bordered, hover, small, ...props } = this.props;
+        const className = htmlClasses([
+            ['table'],
+            [dark, 'table-dark'],
+            [striped, 'table-striped'],
+            [bordered, 'table-bordered'],
+            [hover, 'table-hover'],
+            [small, 'table-sm'],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
         
         return (
-            <table className={finalClassName} style={style}>
+            <table {...htmlProperties}>
                 {children}
             </table>
         );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Types, AvailableTypes, CssClasses } from '../config/ProgressConfig';
-import { htmlClass, first } from '../utils/HtmlUtils';
+import { htmlClasses, htmlProps, first } from '../utils/HtmlUtils';
 
 const propTypes = {
     min: PropTypes.number,
@@ -28,11 +28,13 @@ const defaultProps = {
 class Progress extends React.Component {
     render() {
         let { min, max, value, type, label, height, striped, animated, ...props } = this.props;
-        const typeClass = Types[type];
-        const stripedClass = striped ? CssClasses.striped : null;
-        const animatedClass = animated ? CssClasses.animated : null;
-        
-        const className = htmlClass(CssClasses.child, typeClass, stripedClass, animatedClass);
+        const className = htmlClasses([
+            [CssClasses.child],
+            [Types[type]],
+            [striped, CssClasses.striped],
+            [animated, CssClasses.animated],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
 
         if(!min || min < 0) {
             min = 0;
@@ -55,7 +57,7 @@ class Progress extends React.Component {
         return (
             <div className={CssClasses.container} style={{height: height + 'px'}}>
                 <div
-                    className={className}
+                    {...htmlProperties}
                     role={CssClasses.role}
                     style={{width: value + '%'}}
                     aria-valuenow={value}

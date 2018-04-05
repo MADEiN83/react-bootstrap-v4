@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { htmlClass } from '../utils/HtmlUtils';
-import { CssClasses, Types, AvailableTypes } from '../config/ListGroupConfig';
-import Badge from './Badge';
+import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
+import { CssClasses, AvailableTypes } from '../config/ListGroupConfig';
 import ListGroupItem from './ListGroupItem';
 
 const propTypes = {
@@ -35,11 +34,16 @@ class ListGroup extends React.Component {
     }
 
     render() {
-        const { items, style, header, ...props } = this.props;
+        const { items, header, ...props } = this.props;
         const view = this._renderItems(items);
+
+        const className = htmlClasses([
+            [CssClasses.container],
+        ]);
+        const htmlProperties = htmlProps(props, { className });
         
         return (
-            <ul className={CssClasses.container} style={{style}}>
+            <ul {...htmlProperties}>
                 {view}
             </ul>
         );
