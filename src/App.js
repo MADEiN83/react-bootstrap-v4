@@ -15,6 +15,8 @@ import Table from './components/Table';
 import TableRow from './components/TableRow';
 import TableCell from './components/TableCell';
 
+import Pagination from './components/Pagination';
+
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -22,8 +24,8 @@ export default class App extends React.Component {
     this._test = this._test.bind(this);
   }
   
-  _test() {
-    console.log("Triggered!");
+  _test(v) {
+    console.log("Triggered! " + v);
   }
 
   _alert() {
@@ -98,7 +100,7 @@ export default class App extends React.Component {
       onClick: this._test
     }];
 
-    return <ListGroup cssStyles={{width: '18rem;'}} items={items}/>;
+    return <ListGroup style={{width: '18rem;'}} items={items}/>;
   }
 
   _progress() {
@@ -108,10 +110,10 @@ export default class App extends React.Component {
   _rowCol() {
     return (
       <Row>
-        <Column cssStyles={{backgroundColor :'blue'}}>
+        <Column style={{backgroundColor :'blue'}}>
           Coucou la col :p
         </Column>
-        <Column cssStyles={{backgroundColor :'red'}}>
+        <Column style={{backgroundColor :'red'}}>
           Coucou la col :p
         </Column>
       </Row>
@@ -147,8 +149,18 @@ export default class App extends React.Component {
     );
   }
 
+  _pagination() {
+    return (
+      <Pagination
+        currentPage={2}
+        maxPages={5}
+        onClick={this._test}
+        />
+    );
+  }
+
   render() {
-    let view = this._breadcrumb();
+    let view = this._pagination();
 
     return (
       <main className="container">
