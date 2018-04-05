@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass } from '../utils/HtmlUtils';
+import { htmlClass, first } from '../utils/HtmlUtils';
 import { Types, AvailableTypes, CssClasses } from '../config/BadgeConfig';
 
 const propTypes = {
@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    type: AvailableTypes[0],
+    type: first(AvailableTypes),
 };
 
 class Badge extends React.Component {

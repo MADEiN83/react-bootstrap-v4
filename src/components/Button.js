@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { htmlClass } from '../utils/HtmlUtils';
+import { htmlClass, first } from '../utils/HtmlUtils';
 import { Types, AvailableSizes, AvailableTypes, OutlineStates, Sizes, CssClasses } from '../config/ButtonConfig';
 
 const propTypes = {
@@ -14,7 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    type: AvailableTypes[0],
+    type: first(AvailableTypes),
     block: false,
     outline: false
 };

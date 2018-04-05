@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Types, AvailableTypes, CssClasses } from '../config/ProgressConfig';
-import HtmlUtils from '../utils/HtmlUtils';
+import { htmlClass, first } from '../utils/HtmlUtils';
 
 const propTypes = {
     min: PropTypes.number,
@@ -19,7 +19,7 @@ const defaultProps = {
     value: 0,
     min: 0,
     max: 100,
-    type: AvailableTypes[0],
+    type: first(AvailableTypes),
     striped: false,
     animated: false,
     label: false,
@@ -32,7 +32,7 @@ class Progress extends React.Component {
         const stripedClass = striped ? CssClasses.striped : null;
         const animatedClass = animated ? CssClasses.animated : null;
         
-        const className = HtmlUtils.htmlClass(CssClasses.child, typeClass, stripedClass, animatedClass);
+        const className = htmlClass(CssClasses.child, typeClass, stripedClass, animatedClass);
 
         if(!min || min < 0) {
             min = 0;
