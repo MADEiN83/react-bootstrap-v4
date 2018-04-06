@@ -213,7 +213,7 @@ export default class App extends React.Component {
         <Input id="kferjof"/>
         <Input id="kferjoez" size="lg" readOnly={true}/>
 
-        <InputRadio onClick={this._test} name='nammmee' items={radioItems} />
+        <InputRadio inline={true} onClick={this._test} name='nammmee' items={radioItems} />
       </Form>
     ); 
   }

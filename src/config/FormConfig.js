@@ -23,4 +23,5 @@ export const CssClasses = {
     inputCheckbox: 'form-check-input',
     inputLabelCheckbox: 'form-check-label',
     formGroupCheckbox: 'form-check',
+    inlineCheckbox: 'form-check-inline',
 }

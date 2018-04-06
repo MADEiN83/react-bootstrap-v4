@@ -8,12 +8,13 @@ const propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         key: PropTypes.string,
+        text: PropTypes.string,
         value: PropTypes.string,
         defaultChecked: PropTypes.bool,
         disabled: PropTypes.bool,
     })),
     name: PropTypes.string,
-
+    inline: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -22,18 +23,27 @@ const defaultProps = {
 
 class InputRadio extends React.Component {
     render() {
-        const { id, items, ...props } = this.props;
+        const { id, items, inline, ...props } = this.props;
         const className = htmlClasses([
             [CssClasses.inputCheckbox],
         ]);
         const htmlProperties = htmlProps(props, { className });
 
+        const classNameContainer = htmlClasses([
+            [CssClasses.formGroupCheckbox],
+            [inline, CssClasses.inlineCheckbox]
+        ]);
+
         let htmlItems = items.map((i, key) => (
-            <div key={key} className={CssClasses.formGroupCheckbox}>
+            <div key={key} className={classNameContainer}>
                 <input id={i.id} defaultChecked={i.defaultChecked} disabled={i.disabled} type="radio" {...htmlProperties}/>
-                <label className={CssClasses.inputLabelCheckbox} htmlFor={i.id}>
-                    {i.text}
-                </label>
+                {
+                    i.text
+                    ? <label className={CssClasses.inputLabelCheckbox} htmlFor={i.id}>
+                        {i.text}
+                    </label>
+                    : null
+                }
             </div>
         ));
 
