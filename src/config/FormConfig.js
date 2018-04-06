@@ -1,10 +1,18 @@
-export const InputTypes = [
+export const AvailableTypes = [
     'text',
     'number',
     'email', 
     'password',
     'checkbox',
+    'file',
 ];
+
+export const AvailableSizes = ['sm', 'lg'];
+
+export const Sizes = {
+    sm: 'form-control-sm',
+    lg: 'form-control-lg',
+}
 
 export const CssClasses = {
     input: 'form-control',

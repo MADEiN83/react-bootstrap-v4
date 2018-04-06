@@ -17,6 +17,8 @@ const htmlKeys = [
     'rows',
     'cols',
     'multiple',
+    'readOnly',
+    'name',
     
     'onClick',
     'onChange',

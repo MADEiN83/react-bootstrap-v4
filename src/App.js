@@ -24,6 +24,7 @@ import InputCheckbox from './components/InputCheckbox';
 import InputText from './components/InputText';
 import TextArea from './components/TextArea';
 import Select from './components/Select';
+import InputRadio from './components/InputRadio';
 
 export default class App extends React.Component {
   constructor(props){
@@ -169,14 +170,25 @@ export default class App extends React.Component {
 
   _form() {
     let selectItems = [{
-      id: 'id01',
       text: 'Value 1',
       value: 'value_1',
     },
     {
-      id: 'id02',
       text: 'Value 2',
       value: 'value_2',
+    }];
+
+    let radioItems = [{
+      id: 'v1',
+      text: 'Value 1',
+      value: 'value_1',
+    },
+    {
+      id: 'v2',
+      text: 'Value 2',
+      value: 'value_2',
+      defaultChecked: true,
+      disabled: false,
     }];
 
     return (
@@ -190,11 +202,18 @@ export default class App extends React.Component {
           
         <InputCheckbox id="myFormCheckbox"
                     label='Email address'
-                    onChange={this._test}/>
+                    onChange={this._test}
+                    disabled={true}/>
 
         <TextArea id="ok" placeholder='okdzef' label='Jsaispas'/>
 
-        <Select id="ok" onChange={this._test} items={selectItems} multiple={false} label="mylabel" />
+        <Select id="ock" onChange={this._test} items={selectItems} multiple={false} label="mylabel" />
+
+        <Input id="kferjo" size="sm"/>
+        <Input id="kferjof"/>
+        <Input id="kferjoez" size="lg" readOnly={true}/>
+
+        <InputRadio onClick={this._test} name='nammmee' items={radioItems} />
       </Form>
     ); 
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { htmlClasses, htmlProps } from '../utils/HtmlUtils';
-import { CssClasses } from '../config/FormConfig';
+import { CssClasses, Sizes, AvailableSizes } from '../config/FormConfig';
 import SelectItem from '../components/SelectItem';
 
 const propTypes = {
@@ -11,10 +11,10 @@ const propTypes = {
     label: PropTypes.string,
     multiple: PropTypes.bool,
     items: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string,
         key: PropTypes.string,
         value: PropTypes.string,
     })),
+    size: PropTypes.oneOf(AvailableSizes),
 };
 
 const defaultProps = {
@@ -35,9 +35,10 @@ class Select extends React.Component {
     }
 
     render() {
-        const { id, label, items, ...props } = this.props;
+        const { id, label, items, size, ...props } = this.props;
         const className = htmlClasses([
             [CssClasses.input],
+            [Sizes[size]]
         ]);
         const htmlProperties = htmlProps(props, { className });
         const htmlItems = this._renderItems(items);
