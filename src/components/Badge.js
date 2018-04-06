@@ -6,7 +6,7 @@ import { Types, AvailableTypes } from '../config/BadgeConfig';
 const propTypes = {
     children: PropTypes.any.isRequired,
     type: PropTypes.oneOf(AvailableTypes),
-    styles: PropTypes.object,
+    style: PropTypes.object,
     className: PropTypes.string,
     onClick: PropTypes.func
 };

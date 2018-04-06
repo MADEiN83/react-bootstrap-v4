@@ -1,7 +1,6 @@
 # react-bootstrap-v4
 
 # Table of contents
-
    * [Table of contents](#table-of-contents)
    * [Alert](#alert)
       * [Properties](#alert-properties)
@@ -11,15 +10,48 @@
       * [Properties](#badge-properties)
       * [Events](#badge-events)
       * [Example](#badge-example)
+   * [Breadcrumb](#breadcrumb)
+      * [Properties](#breadcrumb-properties)
+      * [Events](#breadcrumb-events)
+      * [Example](#breadcrumb-example)
+   * [Button](#button)
+      * [Properties](#button-properties)
+      * [Events](#button-events)
+      * [Example](#button-example)
+   * [Card](#card)
+      * [Properties](#card-properties)
+      * [Events](#card-events)
+      * [Example](#card-example)
+   * [ListGroup](#listgroup)
+      * [Properties](#listgroup-properties)
+      * [Events](#listgroup-events)
+      * [Example](#listgroup-example)
+   * [Pagination](#pagination)
+      * [Properties](#pagination-properties)
+      * [Events](#pagination-events)
+      * [Example](#pagination-example)
+   * [Progress](#progress)
+      * [Properties](#progress-properties)
+      * [Events](#progress-events)
+      * [Example](#progress-example)
+   * [Row](#row)
+      * [Properties](#row-properties)
+      * [Events](#row-events)
+      * [Example](#row-example)
+   * [Table](#table)
+      * [Properties](#table-properties)
+      * [Events](#table-events)
+      * [Example](#table-example)
 
 ## Alert
 ### Alert properties
 
-test | type | default | comment
+name | type | default | comment
 -- | -- | -- | -- 
-`type` | string | `primary` | Must be: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
-`cssStyle` | string | | Custom CSS style 
-`closeLabel` | string | close | ARIA label for the close button 
+`type` | `string` | `primary` | Must be: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
+`closeLabel` | `string` | close | ARIA label for the close button
+
+[See default HTML properties](#default-HTML-properties)
 
 ### Alert events
 name | type | comment
@@ -30,7 +62,7 @@ name | type | comment
 
 ```js
 ReactDOM.render(
-  <Alert type='danger' onClick={this._onClickHandler}>
+  <Alert type='danger' onDismiss={this._onDismissHandler}>
     <p>Your content here</p>
   </Alert>,
   document.getElementById('root')
@@ -39,9 +71,18 @@ ReactDOM.render(
 
 ## Badge
 ### Badge properties
-todo
+
+name | type | default | comment
+-- | -- | -- | -- 
+`type` | `string` | `primary` | Must be: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
+
+[See default HTML properties](#default-HTML-properties)
+
 ### Badge events
-todo
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
 ### Badge example
 
 ```js
@@ -52,3 +93,212 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+## Breadcrumb
+### Breadcrumb properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`items` | - |  | Object array of objects type { text: string, title: string, url: string}
+
+[See default HTML properties](#default-HTML-properties)
+
+### Breadcrumb events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Breadcrumb example
+
+```js
+const items = [{
+  title:'Go to home page',
+  text: 'Home',
+  url:'http://google.fr'
+},
+{
+  title:'Users page',
+  text: 'Users',
+}];
+
+ReactDOM.render(
+  <Breadcrumb items={items} />,
+  document.getElementById('root')
+);
+```
+
+## Button
+### Button properties
+
+name | type | default | comment
+-- | -- | -- | --
+`type` | `string` | `primary` | Must be: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
+`size` | `string` |  | Must be: `sm`, `lg`
+`block` | `boolean` | `false` | Render the button with block styles
+`outline` | `boolean` | `false` | Render the button with outline styles
+`disabled` | `boolean` | `false` | If the button is disabled
+
+[See default HTML properties](#default-HTML-properties)
+
+### Button events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Button example
+
+```js
+ReactDOM.render(
+  <Button
+    type='success' 
+    size="sm" 
+    disabled={false} 
+    block={false} 
+    outline={true}>
+    Click here
+  </Button>,
+  document.getElementById('root')
+);
+```
+
+## Card
+### Card properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`title` | `string` | | The Card title
+
+[See default HTML properties](#default-HTML-properties)
+
+### Card events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Card example
+
+```js
+ReactDOM.render(
+  <Card title="My Card title" 
+        src='[ImageUrl]'>
+    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" className="btn btn-primary">Go somewhere</a>
+  </Card>,
+  document.getElementById('root')
+);
+```
+
+## ListGroup
+### ListGroup properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`-` | - | `-` | -
+
+[See default HTML properties](#default-HTML-properties)
+
+### ListGroup events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### ListGroup example
+
+```js
+console.log('todo');
+```
+
+## Pagination
+### Pagination properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`-` | - | `-` | -
+
+[See default HTML properties](#default-HTML-properties)
+
+### Pagination events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Pagination example
+
+```js
+console.log('todo');
+```
+
+## Progress
+### Progress properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`-` | - | `-` | -
+
+[See default HTML properties](#default-HTML-properties)
+
+### Progress events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Progress example
+
+```js
+console.log('todo');
+```
+
+## Row
+### Row properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`-` | - | `-` | -
+
+[See default HTML properties](#default-HTML-properties)
+
+### Row events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Row example
+
+```js
+console.log('todo');
+```
+
+## Table
+### Table properties
+
+name | type | default | comment
+-- | -- | -- | -- 
+`-` | - | `-` | -
+
+[See default HTML properties](#default-HTML-properties)
+
+### Table events
+name | type | comment
+-- | -- | --
+ `-` | - | -
+
+### Table example
+
+```js
+console.log('todo');
+```
+
+## Default HTML properties
+name | type | comment | example
+-- | -- | -- | --
+`title` | `string` | HTML `title` attribute | `title='My Title'`
+`style` | `object` | HTML `style` attribute | `style='{{ color: 'red' }}'`
+`className` | `string` | HTML `class` attribute | `className='custom-class'`
+`onClick` | `event` | HTML `onClick` attribute | `onClick='this.myHandler'`
+`disabled` | `boolean` | HTML `disabled` attribute | `disabled={true/false}`
+`href` | `string` | HTML `href` attribute | `href='your_url'`
+`min` | `number` | HTML `min` attribute | `min={0}`
+`max` | `number` | HTML `max` attribute | `max={100}`
+`value` | `number` | HTML `value` attribute | `value={50}`
+`src` | `string` | HTML `src` attribute | `src='your_url'`
+`alt` | `string` | HTML `alt` attribute | `alt='Image alt attr'`

@@ -15,6 +15,7 @@ const propTypes = {
 
 const defaultProps = {
     type: first(AvailableTypes),
+    closeLabel: 'close',
 };
 
 class Alert extends React.Component {
