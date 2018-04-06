@@ -8,7 +8,7 @@ const propTypes = {
     type: PropTypes.oneOf(AvailableTypes),
     style: PropTypes.object,
     className: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 };
 
 const defaultProps = {

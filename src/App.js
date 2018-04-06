@@ -17,6 +17,12 @@ import TableCell from './components/TableCell';
 
 import Pagination from './components/Pagination';
 
+import Form from './components/Form';
+import Input from './components/Input';
+import InputPassword from './components/InputPassword';
+import InputCheckbox from './components/InputCheckbox';
+import InputText from './components/InputText';
+
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -25,7 +31,7 @@ export default class App extends React.Component {
   }
   
   _test(v) {
-    console.log("Triggered! " + v);
+    console.log("Triggered! ", v);
   }
 
   _alert() {
@@ -159,8 +165,25 @@ export default class App extends React.Component {
     );
   }
 
+  _form() {
+    return (
+      <Form>
+        <Input id="myForm"
+                    label='Email address'
+                    placeholder='Enter email'
+                    type="email"
+                    onChange={this._test}
+                    help={<span>We will <b>never</b> share your email with anyone else.</span>}/>
+          
+        <InputCheckbox id="myFormCheckbox"
+                    label='Email address'
+                    onChange={this._test}/>
+      </Form>
+    ); 
+  }
+
   render() {
-    let view = this._pagination();
+    let view = this._form();
 
     return (
       <main className="container">

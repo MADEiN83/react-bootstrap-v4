@@ -1,6 +1,5 @@
 const htmlKeys = [
     'style',
-    'onClick',
     'className',
     'disabled',
     'href',
@@ -10,6 +9,14 @@ const htmlKeys = [
     'src',
     'alt',
     'title',
+    
+    'placeholder',
+    'id',
+    'defaultValue',
+    'type',
+    
+    'onClick',
+    'onChange',
 ];
 
 export function htmlProps(props, otherProperties) {
