@@ -37,7 +37,7 @@ class Input extends React.Component {
         const htmlProperties = htmlProps(props, { className });
         const htmlLabel = label ? <label htmlFor={id} className={labelClass}>{label}</label> : null;
         const htmlInput = <input {...htmlProperties} id={id} />;
-        const htmlSmall = help ? <small class={CssClasses.inputHelp}>{help}</small> : null;
+        const htmlSmall = help ? <small className={CssClasses.inputHelp}>{help}</small> : null;
         
         
         return (

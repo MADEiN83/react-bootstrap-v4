@@ -14,6 +14,9 @@ const htmlKeys = [
     'id',
     'defaultValue',
     'type',
+    'rows',
+    'cols',
+    'multiple',
     
     'onClick',
     'onChange',
