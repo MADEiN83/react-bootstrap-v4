@@ -38,13 +38,52 @@ export default class App extends React.Component {
   }
 
   _alert() {
-    return <Alert type="danger" onDismiss={this._test}>
-        <span>okok</span>
-      </Alert>;
+    const types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+
+    const html = types.map((i, k) => (
+      <Alert key={k} type={i}>
+        <span>Alert of type <b>{i}</b></span>
+      </Alert>
+    ));
+
+    return (
+      <React.Fragment>
+        <h5>• Alert components</h5><hr />
+        {html}
+      </React.Fragment>
+    );
+  }
+
+  _alertDismiss() {
+    const types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+    const html = types.map((i, k) => (
+      <Alert key={k} type={i} onDismiss={this._test}>
+        <span>Alert of type <b>{i}</b></span>
+      </Alert>
+    ));
+
+    return (
+      <React.Fragment>
+        <h5>• Alert components with dismiss button</h5><hr />
+        {html}
+      </React.Fragment>
+    );
   }
 
   _badge() {
-    return <Badge type="dark">6ix9ine</Badge>
+    const types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+    const html = types.map((i, k) => (
+      <React.Fragment>
+        <Badge key={k} type={i}>{i}</Badge>&nbsp;
+      </React.Fragment>
+    ));
+
+    return (
+      <React.Fragment>
+        <h5>• Badge components</h5><hr />
+        <div  style={{textAlign: 'center'}}>{html}</div>
+      </React.Fragment>
+    );
   }
 
   _breadcrumb() {
@@ -193,6 +232,7 @@ export default class App extends React.Component {
 
     return (
       <Form>
+        <h5>• Form components</h5><hr />
         <Input id="myForm"
                     label='Email address'
                     placeholder='Enter email'
@@ -219,12 +259,20 @@ export default class App extends React.Component {
   }
 
   render() {
-    let view = this._form();
 
     return (
       <main className="container">
-        {view}
+        <TestComponent>{this._alert()}</TestComponent>
+        <TestComponent>{this._alertDismiss()}</TestComponent>
+        <TestComponent>{this._badge()}</TestComponent>
+        <TestComponent>{this._form()}</TestComponent>
       </main>
     );
   }
 }
+
+const TestComponent = (props) => (
+  <div style={{backgroundColor: '#FAFAFA', borderRadius: 4, padding: 10, marginBottom: 10, marginTop: 10}}>
+    {props.children}
+  </div>
+);
