@@ -262,9 +262,9 @@ export default class App extends React.Component {
 
   render() {
 
-    return <BootstrapV4 component="ALERT" type="dark" onDismiss={this._test}>
-      Hey you!
-    </BootstrapV4>;
+    // return <BootstrapV4 component="ALERT" type="dark" onDismiss={this._test}>
+    //   Hey you!
+    // </BootstrapV4>;
 
     return (
       <main className="container">
