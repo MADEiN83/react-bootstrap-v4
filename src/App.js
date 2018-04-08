@@ -26,6 +26,8 @@ import TextArea from './components/TextArea';
 import Select from './components/Select';
 import InputRadio from './components/InputRadio';
 
+import BootstrapV4 from './components/BootstrapV4';
+
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -259,6 +261,10 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    return <BootstrapV4 component="ALERT" type="dark" onDismiss={this._test}>
+      Hey you!
+    </BootstrapV4>;
 
     return (
       <main className="container">
