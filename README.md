@@ -9,7 +9,18 @@
 ### Installation
 
 ```
-npm i @madein83/react-bootstrap-v4
+npm i @madein83/react-bootstrap-v4 --save
+```
+
+### Usage
+```js
+import { Alert, Badge } from '@madein83/react-bootstrap-v4';
+
+...
+
+<Alert type="danger">
+  It <b>works</b>!
+</Alert>
 ```
 
 # Table of contents

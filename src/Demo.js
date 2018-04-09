@@ -28,7 +28,7 @@ import InputRadio from './components/InputRadio';
 
 import BootstrapV4 from './components/BootstrapV4';
 
-export default class App extends React.Component {
+export default class Demo extends React.Component {
   constructor(props){
     super(props);
     

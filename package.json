@@ -1,7 +1,8 @@
 {
   "name": "@madein83/react-bootstrap-v4",
   "description": "React package with Bootstrap V4 !",
-  "version": "0.2.0",
+  "version": "0.2.4",
+  "main": "build/index.js",
   "private": false,
   "author": {
     "name": "Anthony DI STEFANO"
@@ -10,7 +11,12 @@
     "type": "git",
     "url": "https://github.com/MADEiN83/react-bootstrap-v4.git"
   },
-  "Keywords" : ["react", "bootstrap", "bootstrap 4", "responsive"],
+  "Keywords": [
+    "react",
+    "bootstrap",
+    "bootstrap 4",
+    "responsive"
+  ],
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
@@ -18,9 +24,16 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "webpack-cli": "^2.0.14"
   }
 }
