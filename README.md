@@ -1,4 +1,4 @@
-# react-bootstrap-v4
+# react-bootstrap-v4 [![Build Status](https://travis-ci.org/MADEiN83/react-bootstrap-v4.svg?branch=master)](https://travis-ci.org/MADEiN83/react-bootstrap-v4) [![npm version](https://badge.fury.io/js/%40madein83%2Freact-bootstrap-v4.svg)](https://badge.fury.io/js/%40madein83%2Freact-bootstrap-v4)
 
 ### To-Do List
 - [x] Init Github project
