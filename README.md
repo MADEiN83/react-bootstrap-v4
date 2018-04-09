@@ -6,6 +6,12 @@
 - [ ] Add all form Components
 - [ ] ...
 
+### Installation
+
+```
+npm i @madein83/react-bootstrap-v4
+```
+
 # Table of contents
    * [Table of contents](#table-of-contents)
    * [Default HTML properties](#default-html-properties)
