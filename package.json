@@ -1,10 +1,16 @@
 {
-  "name": "react-bootstrap-v4",
+  "name": "react-bootstrap4",
+  "description": "React package with Bootstrap V4 !",
   "version": "0.1.0",
+  "private": false,
   "author": {
     "name": "Anthony DI STEFANO"
   },
-  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MADEiN83/react-bootstrap-v4.git"
+  },
+  "Keywords" : ["react", "bootstrap", "bootstrap 4", "responsive"],
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
