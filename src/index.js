@@ -30,6 +30,9 @@ import InputRadio from './components/InputRadio';
 
 import BootstrapV4 from './components/BootstrapV4';
 
+
+import Demo from './demo/index';
+
 export { 
     Alert,
     Badge,

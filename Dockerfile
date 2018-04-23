@@ -6,8 +6,8 @@ WORKDIR /usr/src/app
 #COPY package*.json ./
 COPY package.json /usr/src/app/package.json
 
-RUN npm install --silent
-RUN npm install react-scripts -g --silent
+RUN npm i --silent
+RUN npm i react-scripts -g --silent
 
 # Bundle app source
 #COPY . .

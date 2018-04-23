@@ -24,7 +24,8 @@
   },
   "scripts": {
     "start": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "demo": "react-scripts start"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -33,6 +34,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.5.1",
+    "react-scripts": "^1.1.4",
     "webpack-cli": "^2.0.14"
   }
 }

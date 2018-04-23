@@ -23,6 +23,11 @@ import { Alert, Badge } from '@madein83/react-bootstrap-v4';
 </Alert>
 ```
 
+### Demo
+```bash
+npm run demo
+```
+
 # Table of contents
    * [Table of contents](#table-of-contents)
    * [Default HTML properties](#default-html-properties)
