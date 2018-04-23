@@ -89,9 +89,9 @@ name | type | comment | example
 Default events can be use with all components below.
 
 name | type | comment
--- | --
-`onClick` | onClick HTML event
-`onChange` | onChange HTML event
+-- | -- | --
+`onClick` | onClick HTML event | 
+`onChange` | onChange HTML event |
 
 # Components
 
